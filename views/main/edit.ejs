@@ -1,0 +1,109 @@
+<%- include("../partials/header")%>
+<link rel="stylesheet" href="/css/home.css" />
+
+<body>
+
+  <%-include("../partials/navbar")%>
+  <!-- <hr> -->
+
+  <section
+    id="contact"
+    style="background-color: white; margin-top: 100px"
+    class="container"
+  >
+    <h1
+      class="contact-head container"
+      style="
+        background-color: rgb(234, 240, 240);
+        margin-bottom: 0;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+      "
+    >
+      Edit Product Details 
+    </h1>
+    <div
+      id="contact-box"
+      style="
+        background-color: rgb(211, 216, 216);
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+      "
+    >
+      <form method="post" action="/products/<%=product._id%>?_method=PATCH">
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            value="<%=product.name%>"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="price">Price: </label>
+          <input
+            type="price"
+            name="price"
+            id="price"
+            placeholder="Enter the pirce of the Product (in Rs) "
+            value="<%=product.price%>"
+          />
+        </div>
+
+      <div class="form-group">
+        <label for="photo">Picture of the Product: </label>
+        <input type="file" name="img" id="photo"  placeholder="Image of the Product" accept="image/*">
+        
+      </div>
+        <div class="form-group">
+          <label for="selectOptions">Select an option:</label>
+          <select id="selectOptions" name="type">
+            <option value="FoodItems">FoodItems</option>
+            <option value="Books">Book</option>
+            <option value="Cycle">Cycle</option>
+            <option value="Others">Others</option>
+
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+        
+
+        <div class="form-group">
+          <label for="desc">Description: </label>
+          <textarea
+            name="desc"
+            id="desc"
+            cols="30"
+            rows="10"
+          ><%=product.desc%></textarea>
+        </div>
+
+        <br />
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+          <button
+            style="
+              background-color: rgb(212, 216, 209);
+              color: black;
+              font-weight: bold;
+              box-shadow: 3px 3px red;
+              border: 2px solid black;
+              border-radius: 12px;
+              font-family: cursive;
+              padding: 10px;
+            "
+            class="btn btn-primary"
+            type="submit"
+            value="upload"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <%-include('../partials/footer')%>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<%-include('../partials/header')%>
+
+    
+
+<%-include('../partials/navbar')%>
+<link rel="stylesheet" href="/css/products.css">
+<%-include('../partials/flash')%>   
+<section class="item-name">
+    <%=type.item%>
+</section>
+ <%if(!itemFilter.length){%>
+    <h1><center>No Products Found</center></h1>
+
+ <%}else{%>   
+
+<div class="item-list">
+  <% for(let item of itemFilter) { %>
+      <div class="box">
+          <div class="image">
+              <% if (item.img && item.img.data) { %>
+                  <img src="data:<%= item.img.contentType %>;base64,<%= item.img.data.toString('base64') %>" alt="Image">
+              <% } else { %>
+                  <p>No Image Available</p>
+              <% } %>
+          </div>
+          <div class="description" style="padding: 5px;">
+              <center><strong> <em style="font-size: 1.5rem;"><%=item.name%></em></strong></center>
+              <div>
+                <strong>Publisher Name:</strong><%=item.author.username%>
+              </div>
+              <div>
+                <strong>Price:</strong> <%=item.price%> 
+              </div>
+              <div>
+                <strong>Phone Number:</strong><%=item.author.phone%>
+              </div>
+              <div>
+                <strong>Gmail Id:</strong><%=item.author.email%>
+              </div>
+              <strong>Description: </strong>
+              <div class="desc">
+                <%=item.desc%>
+              </div>
+              <%if(currentUser && currentUser.type === 'seller'){%>
+            <div style="display: flex; justify-content: center;">
+              <form action="/products/<%=item._id%>/edit" method="get" >
+                <button class="action-btn">Edit</button>
+              </form>
+              
+                <form action="/products/<%=item._id%>?_method=delete" method="post">
+                    <button class="action-btn" >Delete</button>
+                </form>
+            </div>
+              <%}%>
+          </div>
+      </div>
+  <% } %> 
+</div>
+ <%}%>
+
+
+
+  
+
+    
+   
+
+<%-include('../partials/footer')%>

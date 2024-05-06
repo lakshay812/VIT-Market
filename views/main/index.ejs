@@ -1,0 +1,149 @@
+<!-- <%-include('../partials/header')%> -->
+
+<link rel="stylesheet" href="/css/home.css" />
+
+<body>
+     
+    <%-include('../partials/navbar')%>
+    <%-include('../partials/flash')%>
+    
+   <!-- <hr> -->
+    <div id="vision">
+        <div class="title">
+            HOT DEALS TODAY!!!!
+        </div>
+    </div>
+    
+   
+    <div id="topDeal">
+        <h2>TOP PRODUCTS</h2>
+    </div>
+    <div class="services">
+        
+        <h3>FOOD ITEMS</h3>
+
+        <div class="list-of-services">
+            <%for(let i=0;i<5;i++){%>
+                <div class="box">
+                    <%if(FoodItems.length){%>
+                    <%var randomIndex=Math.floor(Math.random()*FoodItems.length)%>
+                    <a href="/products/FoodItems"><img src="data:<%= FoodItems[randomIndex].contentType %>;base64,<%= FoodItems[randomIndex].data.toString('base64') %>" alt="">
+                    </a>
+                    <%}else{%>
+                        <a href="/products/FoodItems"><img src="" alt="">
+                        </a>
+                    <%}%>
+                </div>
+                <%}%>
+            
+            <div class="box">
+                <a href="/products/FoodItems" target="_blank">SHOW MORE</a>
+            </div>
+            
+
+        </div> 
+    </div>
+    <div class="services">
+        
+        <h3>BOOKS</h3>
+        <div class="list-of-services">
+            <%for(let i=0;i<5;i++){%>
+            <div class="box">
+                <%if(Books.length){%>
+                <%var randomIndex=Math.floor(Math.random()*Books.length)%>
+                <a href="/products/Books"><img src="data:<%= Books[randomIndex].contentType %>;base64,<%= Books[randomIndex].data.toString('base64') %>" alt="">
+                </a>
+                <%}else{%>
+                    <a href="/products/Books"><img src="" alt="">
+                    </a>
+                <%}%>
+            </div>
+            <%}%>
+            <div class="box">
+                <a href="/products/Books" target="_blank">SHOW MORE</a>
+            </div>
+            
+
+        </div>
+    </div>
+        <div class="services">
+        
+            <h3>CYCLES</h3>
+            <div class="list-of-services">
+                <%for(let i=0;i<5;i++){%>
+                    <div class="box">
+                        <%if(Cycles.length){%>
+                        <%var randomIndex=Math.floor(Math.random()*Cycles.length)%>
+                        <a href="/products/Cycles"><img src="data:<%= Cycles[randomIndex].contentType %>;base64,<%= Cycles[randomIndex].data.toString('base64') %>" alt="">
+                        </a>
+                        <%}else{%>
+                            <a href="/products/Cycles"><img src="" alt="">
+                            </a>
+                        <%}%>
+                    </div>
+                    <%}%>
+                <div class="box">
+                    <a href="/products/Cycles" target="_blank">SHOW MORE</a>
+                </div>
+                
+    
+            </div>
+        </div>
+            <div class="services">
+                
+                <h3>Others</h3>
+                <div class="list-of-services">
+                    <%for(let i=0;i<5;i++){%>
+                        <div class="box">
+                            <%if(Others.length){%>
+                            <%var randomIndex=Math.floor(Math.random()*Others.length)%>
+                            <a href="/products/Others"><img src="data:<%= Others[randomIndex].contentType %>;base64,<%= Others[randomIndex].data.toString('base64') %>" alt="">
+                            </a>
+                            <%}else{%>
+                                <a href="/products/Others"><img src="" alt="">
+                                </a>
+                            <%}%>
+                        </div>
+                        <%}%>
+                    <div class="box">
+                        <a href="/products/Others" target="_blank">SHOW MORE</a>
+                    </div>
+                    
+        
+                </div>
+            </div>
+
+    
+    <section id="contact">
+        <h1 class="contact-head">Contact Us</h1>
+        <div id="contact-box">
+            <form   method="post" action="/feedback">
+                
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number: </label>
+                    <input type="phone" name="phone" id="phone" placeholder="Enter your phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message: </label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button style="background-color: rgb(212, 216, 209); color: black; font-weight: bold; box-shadow: 3px 3px red; border: 2px solid black; border-radius: 12px; font-family: cursive;padding: 10px;" class="btn btn-primary  " type="submit" >SUBMIT</button>
+                    
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <%-include('../partials/footer')%>
+
+    
+</body>

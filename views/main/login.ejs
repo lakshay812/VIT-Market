@@ -1,0 +1,48 @@
+<%-include('../partials/header')%>
+<link rel="stylesheet" href="css/login.css">
+<style>
+    
+    nav{
+    display: flex;
+    justify-content: center;
+  /* text-align: center;  */
+   
+    height: 100px;
+    align-items: center;
+    background-color:rgb(83, 35, 214);
+    position: relative;
+    top: 0;
+    width: 100vw;
+    font-size: 5rem;
+    font-family: 'Oswald', sans-serif;
+    font-variant: small-caps;
+    color: white;
+    
+
+}
+</style>
+
+    <nav class="navbar navbar-expand-lg bg-light
+    ">
+        <div class="container-fluid" style="display: flex;">
+          <a class="navbar-brand" href="/"><img src="assets/justrent2.jpg" alt="" srcset="" height="60px" width="150px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+        </div>
+    </nav>
+    <%-include('../partials/flash')%>
+    
+    <form class="login" method='post' action="/login" >
+        
+        <img src="/assets/justrent1.jpg" alt="nahi aa pa rahi">
+        <label for="username"> <strong>Username</strong></label>
+        <input type="text"  name="username" id="username" placeholder="Enter the username">
+        <label for="password"> <strong>Password</strong></label>
+        <input type="password"  name="password" id="password" placeholder="Enter the password">
+        <button id="login-button">Login</button>
+        <p>Don't have an account? <a href="/register">Sign Up</a></p>
+        <!-- <button id="login-button">REGISTER</button>
+         -->
+    </form>
